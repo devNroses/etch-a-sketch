@@ -2,11 +2,22 @@ body, html {
     margin: 0 auto;
 }
 
+#resetBtn{
+    width: auto;
+    padding: 15px;
+    color: white;
+    background-color: firebrick;
+    font-size: 10px;
+    font-weight: bold;
+    border: none;
+    border-radius: 12px;
+    margin: 5px 10px;
+}
+
 .container {
     display: flex;
     justify-content: space-between;
 }
-
 .blocks--drawing{
     display: inline-flex;
     width: 6%;
@@ -17,4 +28,8 @@ body, html {
     padding-right: 0px;
     background-color: lightgrey;
     border: 1px solid lightgrey;
+}
+
+.active--panel {
+    background-color: dodgerblue;
 }
