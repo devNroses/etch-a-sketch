@@ -19,6 +19,15 @@
     const container = document.getElementById('container');
     const drawingBoard = [];
 
+    function getColor() {
+        const letters = '0123456789ABCDEF';
+        let color = '#';
+        
+        for (var i=0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    }
     // Seting the dimensions of the drawing board and populating them within the container
     // Board will be created dynamically based on user input
     function activePanels(numOfBlocks) {
@@ -30,7 +39,7 @@
         }
 
         drawingBoard.forEach(square => square.addEventListener('mouseenter', function(e) {
-            e.target.classList.add('active--panel'),'this has been rolled over';
+           e.target.style.backgroundColor = getColor();
         }))
     }
 
@@ -47,6 +56,5 @@
 
         activePanels(Number(boardSize));
     });
-
 </script>
 </html>
