@@ -29,7 +29,3 @@ body, html {
     background-color: lightgrey;
     border: 1px solid lightgrey;
 }
-
-.active--panel {
-    background-color: dodgerblue;
-}
