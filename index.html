@@ -15,7 +15,7 @@
 </body>
 
 <script>
-    const resetButton = document.getElementById('resetBtn');
+    const createButton = document.getElementById('resetBtn');
     const container = document.getElementById('container');
     const drawingBoard = [];
 
@@ -34,7 +34,7 @@
         }))
     }
 
-     resetButton.addEventListener('click', function() {
+     createButton.addEventListener('click', function() {
         const boardSize = prompt('What size would you like your board? (Examble 64 = 64 x 64 board)');
 
         if(isNaN(boardSize)) { 
