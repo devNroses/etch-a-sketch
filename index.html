@@ -9,37 +9,44 @@
 </head>
 <body>
     <div>
-        <button id="resetBtn" type="reset">Reset Grid</button>
+        <button id="resetBtn" type="reset">Create Board</button>
     </div>
-    <div id="container">
-        
-    </div>
+    <div id="container"></div>
 </body>
 
 <script>
-    let numOfBlocks = 256;
     const resetButton = document.getElementById('resetBtn');
     const container = document.getElementById('container');
     const drawingBoard = [];
 
-    function activePanels() {
+    // Seting the dimensions of the drawing board and populating them within the container
+    // Board will be created dynamically based on user input
+    function activePanels(numOfBlocks) {
+        for(let i = 0; i < numOfBlocks; i++) {
+            const block = document.createElement('div');
+            block.classList.add('blocks--drawing');
+            drawingBoard.push(block);
+            container.append(block);
+        }
+
         drawingBoard.forEach(square => square.addEventListener('mouseenter', function(e) {
             e.target.classList.add('active--panel'),'this has been rolled over';
         }))
     }
 
-    for(let i = 0; i < numOfBlocks; i++) {
-        const block = document.createElement('div');
-        block.classList.add('blocks--drawing');
-        drawingBoard.push(block);
-        container.append(block);
-    }
+     resetButton.addEventListener('click', function() {
+        const boardSize = prompt('What size would you like your board? (Examble 64 = 64 x 64 board)');
 
-    resetButton.addEventListener('click', function() {
-        const allBlocks = document.querySelectorAll('.blocks--drawing');
-        allBlocks.forEach(block => (block.classList.remove('active--panel')));
-    })
+        if(isNaN(boardSize)) { 
+            return alert('New board will not be populated. Please enter a number');
+        }
+        
+        while (container.firstChild){
+            container.removeChild(container.firstChild);
+        }
 
-    activePanels();
+        activePanels(Number(boardSize));
+    });
+
 </script>
 </html>
